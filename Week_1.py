@@ -79,6 +79,10 @@ listing_rows_after_concat = len(listing)
 # Rows before concat: 1021977
 # Rows after concat: 1021977
 
+OUTPUT_DIR = "/Users/brianzhao/py"
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+sold.to_csv(os.path.join(OUTPUT_DIR, "combined_sold_all_types.csv"), index=False)
 
 sold_rows_before_filter = len(sold)
 sold_residential = sold[sold["PropertyType"] == "Residential"].copy()
@@ -101,10 +105,6 @@ print(f"SOLD    -- before concat: {sold_rows_before_concat}, after concat: {sold
 print(f"LISTING -- before concat: {listing_rows_before_concat}, after concat: {listing_rows_after_concat}, "
       f"before filter: {listing_rows_before_filter}, after Residential filter: {listing_rows_after_filter}")
 
-
-OUTPUT_DIR = "/Users/brianzhao/py"
-os.makedirs(OUTPUT_DIR, exist_ok=True)
- 
 sold_out_path = os.path.join(OUTPUT_DIR, "combined_sold_residential.csv")
 listing_out_path = os.path.join(OUTPUT_DIR, "combined_listing_residential.csv")
  
