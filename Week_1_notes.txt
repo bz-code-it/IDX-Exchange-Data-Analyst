@@ -1,0 +1,15 @@
+# SOLD row counts (CONCATENATION)
+# Rows before concat: 757987
+# Rows after concat: 757987
+
+# LISTING row counts (CONCATENATION)
+# Rows before concat: 1054456
+# Rows after concat: 1054456
+
+# SOLD row counts (RESIDENTIAL FILTER)
+# Rows before Residential filter: 757987
+# Rows after Residential filter: 509414
+
+# LISTING row counts (RESIDENTIAL FILTER)
+# Rows before Residential filter: 1054456
+# Rows after Residential filter:  669740

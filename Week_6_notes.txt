@@ -1,0 +1,145 @@
+Date columns before conversion:
+CloseDate                   object
+PurchaseContractDate        object
+ListingContractDate         object
+ContractStatusChangeDate    object
+
+Date columns after conversion:
+CloseDate                   datetime64[ns]
+PurchaseContractDate        datetime64[ns]
+ListingContractDate         datetime64[ns]
+ContractStatusChangeDate    datetime64[ns]
+
+PriceRatio distribution:
+count    5.094090e+05
+mean     1.458028e+00
+std      2.806022e+02
+min      9.591326e-07
+25%      9.759358e-01
+50%      1.000000e+00
+75%      1.018593e+00
+max      2.002000e+05
+
+CloseToOriginalListRatio distribution:
+count    5.084780e+05
+mean     4.924137e+01
+std      1.399015e+04
+min      9.207366e-07
+25%      9.523810e-01
+50%      9.940002e-01
+75%      1.018215e+00
+max      9.118000e+06
+
+Extremely low house prices:
+ClosePrice: 9
+ListPrice: 3
+OriginalListPrice: 160
+
+Top 5 largest PriceRatio values:
+476480    200200.000000
+112197      1153.846154
+302006      1074.981402
+164640      1055.555556
+96391       1022.044088
+
+PricePerSqFt distribution:
+count    5.089430e+05
+mean     6.368545e+02
+std      4.567748e+03
+min      4.981497e-04
+25%      3.670199e+02
+50%      5.355505e+02
+75%      7.304994e+02
+max      1.164067e+06
+
+ListingToContractDays distribution:
+count    509216.000000
+mean         45.706323
+std          83.947891
+min      -36407.000000
+25%          10.000000
+50%          25.000000
+75%          59.000000
+max       14657.000000
+
+ContractToCloseDays distribution:
+count    509217.000000
+mean         31.633461
+std          57.337871
+min        -331.000000
+25%          21.000000
+50%          29.000000
+75%          36.000000
+max       36629.000000
+
+Row count: 509414
+
+504221 of 504364 homes with valid coordinates matched
+
+Top 10 SchoolDistrict by number of homes:
+Los Angeles Unified          51750
+San Diego Unified            18513
+Capistrano Unified           10595
+Desert Sands Unified          9703
+Palm Springs Unified          9208
+Long Beach Unified            7144
+Saddleback Valley Unified     7030
+Oakland Unified               6009
+Hemet Unified                 5828
+Corona-Norco Unified          5717
+
+
+Output Table:
+   PriceRatio  CloseToOriginalListRatio  PricePerSqFt  ...  ListingToContractDays  ContractToCloseDays            SchoolDistrict
+0    0.813559                  0.480962    210.526316  ...                  777.0                 65.0     San Mateo-Foster City
+1    1.072510                  1.072510    412.867275  ...                  114.0                919.0       National Elementary
+2    1.051948                  1.094743    410.334347  ...                  255.0                778.0       National Elementary
+3    1.000000                  1.000000    562.098501  ...                    0.0                 48.0  San Luis Coastal Unified
+4    1.000000                  1.000000    928.571429  ...                   32.0                 34.0        Fort Bragg Unified
+
+
+Segment Analysis Table for CountyOrParish:
+                Row_Count  Med_ClosePrice  Med_PPSF  Med_DaysOnMarket  Med_CloseToOriginalListRatio                                                                                    
+San Mateo            8656       1700000.0   1052.62              12.0                          1.01
+Santa Clara         21504       1588888.0    960.25              10.0                          1.02
+Del Norte               2       1465000.0    349.01             195.5                          0.81
+San Francisco        1144       1200000.0    906.78              16.0                          1.01
+Santa Cruz           3664       1190000.0    726.35              18.0                          0.98
+
+
+Sement Analysis Table for PropertySubType:
+                       Row_Count  Med_ClosePrice  Med_PPSF  Med_DaysOnMarket  Med_CloseToOriginalListRatio                                                                                        
+Farm                          17       1425000.0    763.36              20.0                          0.95
+Quadruplex                   190       1250250.0    372.64              30.0                          0.95
+Triplex                      440       1131000.0    468.16              30.0                          0.97
+Duplex                      2879        914000.0    541.61              22.0                          0.98
+SingleFamilyResidence     381701        895000.0    532.31              17.0                          1.00
+Townhouse                  29815        799990.0    556.91              18.0                          1.00
+Loft                          35        680000.0    523.81              26.0                          0.99
+MixedUse                     253        655000.0    422.70              53.0                          0.93
+Condominium                83333        625000.0    561.17              25.0                          0.98
+DeededParking                  6        577500.0    348.41              12.0                          0.99
+MobileHome                    44        555000.0    656.80              68.0                          0.91
+Timeshare                     18        505000.0    187.64              58.0                          0.98
+CoOwnership                   25        400000.0    396.49              24.0                          0.97
+StockCooperative            2012        364000.0    396.98              22.0                          0.98
+ManufacturedOnLand          6588        323700.0    225.69              30.0                          0.97
+Studio                        15        322000.0    666.67              41.0                          0.94
+ManufacturedHome              73        293000.0    180.94              43.0                          0.94
+OwnYourOwn                    69        275000.0    491.32              39.0                          0.95
+Cabin                        601        249900.0    296.09              47.0                          0.92
+BoatSlip                     106        185000.0   1750.00              28.5                          0.94
+
+
+Segment Analysis Table for ListOfficeName:
+                                                    Sales_Count    Total_Sold                                                             
+Compass                                                   36127  6.659996e+10
+Coldwell Banker Realty                                    22839  3.782149e+10
+Keller Williams Realty                                     9916  1.026952e+10
+Berkshire Hathaway HomeServices California Prop...         6380  9.688720e+09
+Intero Real Estate Services                                5284  8.677525e+09
+First Team Real Estate                                     7142  8.040075e+09
+The Agency                                                 3376  7.907186e+09
+Coldwell Banker West                                       3355  6.823791e+09
+Real Broker                                                5938  6.290058e+09
+Pacific Sotheby's Int'l Realty                             2062  6.198892e+09

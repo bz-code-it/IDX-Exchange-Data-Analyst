@@ -1,0 +1,146 @@
+Row Count: 509414
+
+Data types before conversion:
+CloseDate                   object
+PurchaseContractDate        object
+ListingContractDate         object
+ContractStatusChangeDate    object
+
+Null counts before datetime conversion:
+CloseDate                     0
+PurchaseContractDate        197
+ListingContractDate           1
+ContractStatusChangeDate    594
+
+Null counts after datetime conversion:
+CloseDate                     0
+PurchaseContractDate        197
+ListingContractDate           1
+ContractStatusChangeDate    594
+
+## Null counts are identical before and after conversion, so no dates were lost or corrupted during conversion.
+
+Data types after conversion
+CloseDate                   datetime64[ns]
+PurchaseContractDate        datetime64[ns]
+ListingContractDate         datetime64[ns]
+ContractStatusChangeDate    datetime64[ns]
+
+Column count before removing columns: 86
+Column count after removing columns: 71
+
+Null counts in each column:
+Flooring                       183132
+ViewYN                          44352
+PoolPrivateYN                   42375
+OriginalListPrice                 929
+ListAgentEmail                 112971
+ClosePrice                          4
+ListAgentFirstName               3672
+ListAgentLastName                  46
+Latitude                         4924
+Longitude                        4924
+UnparsedAddress                   564
+LivingArea                        281
+BuyerOfficeName                  7823
+CoListOfficeName               389120
+ListAgentFullName                 115
+CoListAgentFirstName           392296
+CoListAgentLastName            391991
+BuyerAgentMlsId                   711
+BuyerAgentFirstName              2328
+BuyerAgentLastName                220
+AssociationFeeFrequency        297454
+MLSAreaMajor                    69488
+ElementarySchool               442049
+AttachedGarageYN                77922
+ParkingTotal                      430
+PropertySubType                   948
+LotSizeAcres                    38911
+SubdivisionName                318649
+BuyerOfficeAOR                  33052
+YearBuilt                         459
+BuyerAgencyCompensationType    452086
+StreetNumberNumeric               675
+BathroomsTotalInteger              71
+City                              322
+BuyerAgencyCompensation        452099
+BedroomsTotal                      13
+ContractStatusChangeDate          594
+PurchaseContractDate              197
+ListingContractDate                 1
+StateOrProvince                     2
+MiddleOrJuniorSchool           441545
+FireplaceYN                       400
+Stories                         76633
+HighSchool                     421275
+Levels                          47197
+LotSizeArea                     38302
+MainLevelBedrooms              213249
+NewConstructionYN               38300
+GarageSpaces                    21791
+HighSchoolDistrict             141081
+PostalCode                          4
+AssociationFee                 116536
+LotSizeSquareFeet               38450
+latfilled                      401257
+lonfilled                      401257
+BuyerAgentAOR                   71538
+ListAgentAOR                    57397
+OriginatingSystemName          369545
+OriginatingSystemSubName       369545
+
+Ensuring numerical columns are propertly typed:
+ClosePrice               float64
+ListPrice                float64
+OriginalListPrice        float64
+LivingArea               float64
+LotSizeAcres             float64
+LotSizeArea              float64
+LotSizeSquareFeet        float64
+BedroomsTotal            float64
+BathroomsTotalInteger    float64
+YearBuilt                float64
+DaysOnMarket               int64
+GarageSpaces             float64
+ParkingTotal             float64
+Stories                  float64
+AssociationFee           float64
+Latitude                 float64
+Longitude                float64
+StreetNumberNumeric      float64
+MainLevelBedrooms        float64
+ListingKeyNumeric          int64
+
+## All numeric columns are properly typed and doesn't need conversion
+## DaysOnMarket is int64 type which means it doesn't have any missing values. 
+
+Invalid numeric values:
+ClosePrice: 1
+LivingArea: 185
+DaysOnMarket: 56
+BedroomsTotal: 0
+BathroomsTotalInteger: 0
+
+## The 4 null rows for ClosePrice weren't captured in the flag
+## They drop out of medians automatically
+
+Date Inconsistencies: 
+listing_after_close_flag: 81
+purchase_after_close_flag: 243
+listing_after_purchase_flag: 323
+
+## Rows can appear in more than one flag, so the counts are not additive.
+
+missing_coordinates_flag: 4924
+zero_coordinate_flag: 53
+positive_Longitude_flag: 35
+out_of_California_flag: 126
+
+geo_issue_flag: 5050
+
+Row Count after: 509414
+
+## Count diddn't change since the rows were only flagged not deleted
+
+Column count after new flag columns: 84

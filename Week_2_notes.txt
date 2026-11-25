@@ -1,0 +1,129 @@
+Dataset Columns:
+       'Flooring', 'ViewYN', 'WaterfrontYN', 'BasementYN', 'PoolPrivateYN',
+       'OriginalListrice', 'ListingKey', 'ListAgentEmail', 'CloseDate',
+       'ClosePrice', 'ListAgentFirstName', 'ListAgentLastName', 'Latitude',
+       'Longitude', 'UnparsedAddress', 'PropertyType', 'LivingArea',
+       'ListPrice', 'DaysOnMarket', 'ListOfficeName', 'BuyerOfficeName',
+       'CoListOfficeName', 'ListAgentFullName', 'CoListAgentFirstName',
+       'CoListAgentLastName', 'BuyerAgentMlsId', 'BuyerAgentFirstName',
+       'BuyerAgentLastName', 'FireplacesTotal', 'AssociationFeeFrequency',
+       'AboveGradeFinishedArea', 'ListingKeyNumeric', 'MLSAreaMajor',
+       'TaxAnnualAmount', 'CountyOrParish', 'MlsStatus', 'ElementarySchool',
+       'AttachedGarageYN', 'ParkingTotal', 'BuilderName', 'PropertySubType',
+       'LotSizeAcres', 'SubdivisionName', 'BuyerOfficeAOR', 'YearBuilt',
+       'BuyerAgencyCompensationType', 'StreetNumberNumeric', 'ListingId',
+       'BathroomsTotalInteger', 'City', 'BuyerAgencyCompensation', 'TaxYear',
+       'BuildingAreaTotal', 'BedroomsTotal', 'ContractStatusChangeDate',
+       'ElementarySchoolDistrict', 'CoBuyerAgentFirstName',
+       'PurchaseContractDate', 'ListingContractDate', 'BelowGradeFinishedArea',
+       'BusinessType', 'StateOrProvince', 'CoveredSpaces',
+       'MiddleOrJuniorSchool', 'FireplaceYN', 'Stories', 'HighSchool',
+       'Levels', 'LotSizeDimensions', 'LotSizeArea', 'MainLevelBedrooms',
+       'NewConstructionYN', 'GarageSpaces', 'HighSchoolDistrict', 'PostalCode',
+       'AssociationFee', 'LotSizeSquareFeet', 'MiddleOrJuniorSchoolDistrict',
+       'latfilled', 'lonfilled', 'BuyerAgentAOR', 'ListAgentAOR',
+       'OriginatingSystemName', 'OriginatingSystemSubName'
+
+Number of Rows: 757987
+Number of Columns: 84
+
+Unique Property Types: 
+    'Residential' 
+    'CommercialLease' 
+    'Land' 
+    'ResidentialLease'
+    'ManufacturedInPark' 
+    'ResidentialIncome' 
+    'CommercialSale'
+    'BusinessOpportunity'
+
+Q1: What is the Residential vs. other property type share?
+Residential            67.206166
+ResidentialLease       23.034168
+Land                    3.162983
+ResidentialIncome       2.700178
+ManufacturedInPark      2.686458
+CommercialSale          0.623889
+CommercialLease         0.521249
+BusinessOpportunity     0.064909
+
+Q2: What are the median and average close prices?
+Median Close Prices: 629666.0
+Average Close Price: 872706.3624335468
+
+Q3: What does the Days on Market distribution look like?
+Days on Market Summary: count    757987.000000
+mean         43.533451
+std          69.603722
+min        -288.000000
+25%           9.000000
+50%          22.000000
+75%          54.000000
+max       12430.000000
+
+## The min of -288 is likely a data entry error.
+
+Q4: What percentage of homes sold above vs. below list price?
+Percentage of Homes Sold Above List Price: 30.253157376049984
+Percentage of Homes Sold Below List Price: 38.684964254004356
+
+## Roughly 31% of homes sold at list price
+
+Q5: Are there any apparent date consistency issues (e.g., close date before listing date)?
+Number of rows with date inconsistencies: 145
+
+Q6: Which counties have the highest median prices?
+Top 5 counties with highest median prices:
+Santa Clara      1480000.0
+San Mateo        1470000.0
+San Francisco    1115000.0
+Alpine           1100000.0
+Marin            1055000.0
+
+Rows before Residential Filter: 757987
+Rows after Residential Filter: 509414
+
+Null Counts: Flooring                    183132
+ViewYN                       44352
+WaterfrontYN                509096
+BasementYN                  499400
+PoolPrivateYN                42375
+                             ...  
+lonfilled                   401257
+BuyerAgentAOR                71538
+ListAgentAOR                 57397
+OriginatingSystemName       369545
+OriginatingSystemSubName    369545
+
+
+                              Null Counts  Null Percentage
+AboveGradeFinishedArea             509414       100.000000
+CoveredSpaces                      509414       100.000000
+TaxAnnualAmount                    509414       100.000000
+TaxYear                            509414       100.000000
+ElementarySchoolDistrict           509414       100.000000
+FireplacesTotal                    509414       100.000000
+MiddleOrJuniorSchoolDistrict       509414       100.000000
+BusinessType                       509414       100.000000
+WaterfrontYN                       509096        99.937575
+BelowGradeFinishedArea             506278        99.384391
+BasementYN                         499400        98.034212
+BuilderName                        484654        95.139513
+LotSizeDimensions                  484539        95.116938
+BuildingAreaTotal                  473622        92.973888
+CoBuyerAgentFirstName              462412        90.773320
+
+
+         ClosePrice    LivingArea   DaysOnMarket
+count  5.094100e+05  5.091330e+05  509414.000000
+mean   1.183062e+06  1.902177e+03      37.804316
+std    5.413338e+06  2.387360e+04      53.690932
+min    0.000000e+00  0.000000e+00    -288.000000
+25%    5.750000e+05  1.250000e+03       8.000000
+50%    8.250000e+05  1.648000e+03      19.000000
+75%    1.300000e+06  2.227000e+03      49.000000
+max    9.895000e+08  1.702132e+07   12430.000000
+
+## ClosePrice max seems too large; the min being 0 is also likely a data error
+## LivingArea max seems too large; the min begin 0 is also likely a data error
+## DaysOnMarket min was caught in the Q5 above

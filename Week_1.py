@@ -62,43 +62,30 @@ def load_and_concat(prefix, year_months, data_dir):
 
 sold, sold_counts_by_month = load_and_concat("CRMLSSold", year_months, DATA_DIR)
  
+# Checking row count for sold data before and after concatenation
 sold_rows_before_concat = sum(sold_counts_by_month.values())
 sold_rows_after_concat = len(sold)
- 
-# SOLD row counts (CONCATENATION)
-# Rows before concat: 736770
-# Rows after concat: 736770
-
 
 listing, listing_counts_by_month = load_and_concat("CRMLSListing", year_months, DATA_DIR)
  
+# Checking row count for listing data before and after concatenation
 listing_rows_before_concat = sum(listing_counts_by_month.values())
 listing_rows_after_concat = len(listing)
- 
-# LISTING row counts (CONCATENATION)
-# Rows before concat: 1021977
-# Rows after concat: 1021977
 
 OUTPUT_DIR = "/Users/brianzhao/py"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 sold.to_csv(os.path.join(OUTPUT_DIR, "combined_sold_all_types.csv"), index=False)
 
+# Checking row count for sold data before and after filtering for Residential property type
 sold_rows_before_filter = len(sold)
 sold_residential = sold[sold["PropertyType"] == "Residential"].copy()
 sold_rows_after_filter = len(sold_residential)
  
-# SOLD row counts (RESIDENTIAL FILTER)
-# Rows before Residential filter: 736770
-# Rows after Residential filter: 495407
- 
+# Checking row count for listing data before and after filtering for Residential property type
 listing_rows_before_filter = len(listing)
 listing_residential = listing[listing["PropertyType"] == "Residential"].copy()
 listing_rows_after_filter = len(listing_residential)
- 
-# LISTING row counts (RESIDENTIAL FILTER)
-# Rows before Residential filter: 1021977
-# Rows after Residential filter:  649783
 
 print(f"SOLD    -- before concat: {sold_rows_before_concat}, after concat: {sold_rows_after_concat}, "
       f"before filter: {sold_rows_before_filter}, after Residential filter: {sold_rows_after_filter}")
